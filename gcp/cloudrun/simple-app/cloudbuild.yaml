@@ -1,0 +1,34 @@
+steps:
+  # at first, decrypting autorize information
+- name: gcr.io/cloud-builders/gcloud
+  args:
+  - kms
+  - decrypt
+  - --ciphertext-file=AUTH_KEY.json.enc
+  - --plaintext-file=AUTH_KEY.json
+  - --location=global
+  - --keyring=YOUR_KMS_KEYRING
+  - --key=YOUR_KMS_KEY
+  # submit docker image
+- name: gcr.io/cloud-builders/gcloud
+  args:
+  - builds
+  - submit
+  - --project=YOUR_GCP_PROJECT_NAME
+  - --tag=gcr.io/YOUR_GCP_PROJECT_NAME/TAG_NAME
+  - .
+  # use submitted image
+- name: gcr.io/cloud-builders/gcloud
+  args:
+  - beta
+  - run
+  - deploy
+  - --project=YOUR_GCP_PROJECT_NAME
+  - --image=gcr.io/YOUR_GCP_PROJECT_NAME/TAG_NAME
+  - --platform=managed
+  - --region=us-central1
+  - --no-allow-unauthenticated
+  - --max-instances=5
+  - --memory=2Gi
+  - --timeout=600
+  - YOUR_APP_NAME
