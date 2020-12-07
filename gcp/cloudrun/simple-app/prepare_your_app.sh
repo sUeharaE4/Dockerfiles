@@ -2,7 +2,7 @@
 
 YOUR_KMS_KEYRING=my_sample_key
 YOUR_KMS_KEY=my_sample_key
-YOUR_GCP_PROJECT_NAME=samplefordockerfiles
+YOUR_GCP_PROJECT_NAME=samples-for-dockerfiles
 TAG_NAME=simpleapp
 YOUR_APP_NAME=simpleapp
 
