@@ -17,7 +17,8 @@ steps:
   - --image=gcr.io/YOUR_GCP_PROJECT_NAME/TAG_NAME
   - --platform=managed
   - --region=us-central1
-  - --no-allow-unauthenticated
+  # if you use container as backend service, remove # bellow.
+  # - --no-allow-unauthenticated
   - --max-instances=5
   - --memory=2Gi
   - --timeout=600
