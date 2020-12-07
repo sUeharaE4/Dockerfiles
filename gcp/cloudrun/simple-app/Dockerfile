@@ -23,7 +23,7 @@ COPY requirements.txt ./
 RUN python -m pip install -r requirements.core.txt
 RUN python -m pip install -r requirements.txt
 
-COPY ./app ./
+COPY ./app/ /work/app/
 
 # in the cloud run port should be 8080
 ENV PORT 8080
