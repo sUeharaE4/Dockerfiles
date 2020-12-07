@@ -25,8 +25,6 @@ RUN python -m pip install -r requirements.txt
 
 COPY ./app ./
 
-COPY AUTH_KEY.json ./
-ENV GOOGLE_APPLICATION_CREDENTIALS /work/AUTH_KEY.json
 # in the cloud run port should be 8080
 ENV PORT 8080
 EXPOSE 8080

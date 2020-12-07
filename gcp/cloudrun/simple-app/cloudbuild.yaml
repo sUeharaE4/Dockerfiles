@@ -1,14 +1,4 @@
 steps:
-  # at first, decrypting autorize information
-- name: gcr.io/cloud-builders/gcloud
-  args:
-  - kms
-  - decrypt
-  - --ciphertext-file=AUTH_KEY.json.enc
-  - --plaintext-file=AUTH_KEY.json
-  - --location=global
-  - --keyring=YOUR_KMS_KEYRING
-  - --key=YOUR_KMS_KEY
   # submit docker image
 - name: gcr.io/cloud-builders/gcloud
   args:
