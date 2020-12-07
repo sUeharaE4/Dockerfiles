@@ -1,0 +1,25 @@
+steps:
+  # submit docker image
+- name: gcr.io/cloud-builders/gcloud
+  args:
+  - builds
+  - submit
+  - --project=YOUR_GCP_PROJECT_NAME
+  - --tag=gcr.io/YOUR_GCP_PROJECT_NAME/TAG_NAME
+  - .
+  # use submitted image
+- name: gcr.io/cloud-builders/gcloud
+  args:
+  - beta
+  - run
+  - deploy
+  - --project=YOUR_GCP_PROJECT_NAME
+  - --image=gcr.io/YOUR_GCP_PROJECT_NAME/TAG_NAME
+  - --platform=managed
+  - --region=us-central1
+  # if you use container as backend service, remove # bellow.
+  # - --no-allow-unauthenticated
+  - --max-instances=5
+  - --memory=2Gi
+  - --timeout=600
+  - YOUR_APP_NAME
