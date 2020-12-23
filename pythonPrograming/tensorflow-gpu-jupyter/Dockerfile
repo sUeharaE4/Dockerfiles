@@ -3,6 +3,8 @@
 FROM tensorflow/tensorflow:latest-gpu-jupyter
 
 ARG USERNAME=username
+# Setting to skip confirmation at the time of installation tzdata
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 RUN apt-get -y upgrade
@@ -43,7 +45,7 @@ RUN { \
 
 # set LD_LIBRARY_PATH to tensorflow can find libs.
 # This is need for tensorflow-2.3.1. Please modify path when your program cant use GPU resources.
-ENV LD_LIBRARY_PATH /usr/local/cuda/lib64:/usr/local/cuda-10.2/targets/x86_64-linux/lib/:$LD_LIBRARY_PATH
+# ENV LD_LIBRARY_PATH /usr/local/cuda/lib64:/usr/local/cuda-10.2/targets/x86_64-linux/lib/:$LD_LIBRARY_PATH
 
 WORKDIR /home/${USERNAME}
 
