@@ -20,7 +20,7 @@ sudo apt-key add /var/cuda-repo-ubuntu1804-11-1-local/7fa2af80.pub
 sudo apt-get update
 sudo apt-get -y install cuda-drivers
 ```
-see official site to search other OS or driver version. https://developer.nvidia.com/cuda-toolkit-archive
+see official site to search other OS or driver version. https://developer.nvidia.com/cuda-downloads?target_os=Linux
 
 Install NVIDIA Container Toolkit
 ```
