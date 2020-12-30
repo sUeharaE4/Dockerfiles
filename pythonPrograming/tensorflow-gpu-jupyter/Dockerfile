@@ -15,12 +15,14 @@ RUN apt-get -y install vim wget curl git
 RUN apt-get -y install libgl1-mesa-dev
 # latex needs to make pdf
 RUN apt-get -y install texlive-xetex texlive-fonts-recommended texlive-generic-recommended
+# add graphviz to show keras model
+RUN apt-get -y install graphviz
 
 RUN pip3 install -U pip setuptools
 RUN pip3 install \
                  jupyter jupyter-contrib-nbextensions jupyterthemes \
                  numpy pandas sklearn opencv-python \
-                 sweetviz matplotlib seaborn plotly click tqdm
+                 sweetviz matplotlib seaborn plotly click tqdm pydot
 RUN pip3 install keras tensorflow_hub
 
 RUN useradd -m -s /bin/bash ${USERNAME}
