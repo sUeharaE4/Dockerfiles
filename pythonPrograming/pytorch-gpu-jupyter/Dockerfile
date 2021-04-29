@@ -1,4 +1,4 @@
-FROM fastdotai/fastai:latest
+FROM fastdotai/fastai:2.1.10
 
 ARG USERNAME=username
 # Setting to skip confirmation at the time of installation tzdata
